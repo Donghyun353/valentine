@@ -25,7 +25,7 @@
       position:relative;
       z-index:2;
     }
-    h1{ margin:0 0 10px; font-size:28px; }
+    h1{ margin:0 0 10px; font-size:26px; }
     p{ margin:0 0 18px; color:#444; }
     .btns{
       display:flex;
@@ -53,7 +53,6 @@
       min-height:24px;
     }
 
-    /* hearts */
     .heart{
       position:fixed;
       left:50%;
@@ -73,12 +72,13 @@
 </head>
 <body>
   <div class="card">
-    <h1>Will you be my Valentine, Hwiyeon? 💘</h1>
-    <p>Choose one 😄</p>
+    <h1>Will you be my Valentine,</h1>
+    <h1>Hwiyoon my lovely baby princess? 💘</h1>
+    <p>Choose wisely 😄</p>
 
-    <div class="btns" id="btnArea">
-      <button id="yesBtn">Yes</button>
-      <button id="noBtn">No</button>
+    <div class="btns">
+      <button id="yesBtn">Yes 💖</button>
+      <button id="noBtn">No 🙈</button>
     </div>
 
     <div id="message"></div>
@@ -89,7 +89,7 @@
     const noBtn  = document.getElementById("noBtn");
     const msg    = document.getElementById("message");
 
-    function popHearts(count = 18){
+    function popHearts(count = 20){
       for(let i=0; i<count; i++){
         const h = document.createElement("div");
         h.className = "heart";
@@ -104,34 +104,27 @@
     }
 
     yesBtn.addEventListener("click", () => {
-      msg.textContent = "Yay!! 🥰 See you on Valentine’s 💖";
-      popHearts(24);
-      yesBtn.style.transform = "scale(1.05)";
-      setTimeout(()=> yesBtn.style.transform = "scale(1)", 200);
+      msg.textContent = "Yay!! I love you so much 💕";
+      popHearts();
     });
 
     function moveNoButton(){
-      // move within viewport safely
       const padding = 20;
-      const btnRect = noBtn.getBoundingClientRect();
-      const maxX = window.innerWidth  - btnRect.width  - padding;
-      const maxY = window.innerHeight - btnRect.height - padding;
-
-      const x = Math.max(padding, Math.random() * maxX);
-      const y = Math.max(padding, Math.random() * maxY);
-
+      const rect = noBtn.getBoundingClientRect();
+      const maxX = window.innerWidth  - rect.width  - padding;
+      const maxY = window.innerHeight - rect.height - padding;
+      const x = Math.random() * maxX;
+      const y = Math.random() * maxY;
       noBtn.style.position = "fixed";
       noBtn.style.left = x + "px";
       noBtn.style.top  = y + "px";
     }
 
-    // make "No" run away (hover + tap)
     noBtn.addEventListener("mouseenter", moveNoButton);
-    noBtn.addEventListener("touchstart", (e) => { e.preventDefault(); moveNoButton(); }, {passive:false});
+    noBtn.addEventListener("touchstart", (e)=>{ e.preventDefault(); moveNoButton(); }, {passive:false});
 
-    // if they somehow click it
     noBtn.addEventListener("click", () => {
-      msg.textContent = "Nice try 😏 (No is not available)";
+      msg.textContent = "No is not allowed 😘";
       moveNoButton();
     });
   </script>
