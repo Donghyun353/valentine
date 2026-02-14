@@ -17,7 +17,7 @@
     }
     .card{
       background:#fff;
-      width:min(520px, 92vw);
+      width:min(540px, 92vw);
       padding:28px 22px;
       border-radius:18px;
       text-align:center;
@@ -25,7 +25,7 @@
       position:relative;
       z-index:2;
     }
-    h1{ margin:0 0 10px; font-size:26px; }
+    h1{ margin:0 0 10px; font-size:26px; line-height:1.25; }
     p{ margin:0 0 18px; color:#444; }
     .btns{
       display:flex;
@@ -41,32 +41,31 @@
       border:none;
       border-radius:12px;
       cursor:pointer;
-      transition: transform .15s ease;
       user-select:none;
+      transition: transform .12s ease;
     }
     #yesBtn{ background:#ff4d6d; color:#fff; }
-    #noBtn { background:#e9ecef; color:#111; position:relative; }
+    #noBtn { background:#e9ecef; color:#111; }
     #message{
       margin-top:16px;
       font-size:18px;
       font-weight:700;
       min-height:24px;
     }
-
     .heart{
       position:fixed;
-      left:50%;
-      top:50%;
-      transform: translate(-50%, -50%);
       font-size:22px;
       pointer-events:none;
       z-index:1;
       animation: floatUp 1.4s ease-out forwards;
+      left:50%;
+      top:55%;
+      transform: translate(-50%, -50%);
     }
     @keyframes floatUp{
-      0%   { opacity:0; transform: translate(-50%, -40%) scale(.6); }
+      0%   { opacity:0; transform: translate(-50%, -45%) scale(.7); }
       10%  { opacity:1; }
-      100% { opacity:0; transform: translate(calc(-50% + var(--x)), calc(-50% - 260px)) scale(1.4); }
+      100% { opacity:0; transform: translate(calc(-50% + var(--x)), calc(-50% - 260px)) scale(1.5); }
     }
   </style>
 </head>
@@ -89,32 +88,33 @@
     const noBtn  = document.getElementById("noBtn");
     const msg    = document.getElementById("message");
 
-    function popHearts(count = 20){
+    function popHearts(count = 22){
       for(let i=0; i<count; i++){
         const h = document.createElement("div");
         h.className = "heart";
         h.textContent = "💖";
-        const x = (Math.random()*360 - 180).toFixed(0) + "px";
-        h.style.setProperty("--x", x);
-        h.style.left = (50 + (Math.random()*20 - 10)) + "%";
-        h.style.top  = (55 + (Math.random()*10 - 5)) + "%";
+        h.style.setProperty("--x", (Math.random()*360 - 180).toFixed(0) + "px");
+        h.style.left = (50 + (Math.random()*18 - 9)) + "%";
+        h.style.top  = (58 + (Math.random()*10 - 5)) + "%";
         document.body.appendChild(h);
-        setTimeout(() => h.remove(), 1500);
+        setTimeout(()=> h.remove(), 1500);
       }
     }
 
     yesBtn.addEventListener("click", () => {
       msg.textContent = "Yay!! I love you so much 💕";
       popHearts();
+      yesBtn.style.transform = "scale(1.06)";
+      setTimeout(()=> yesBtn.style.transform = "scale(1)", 150);
     });
 
     function moveNoButton(){
-      const padding = 20;
+      const padding = 16;
       const rect = noBtn.getBoundingClientRect();
       const maxX = window.innerWidth  - rect.width  - padding;
       const maxY = window.innerHeight - rect.height - padding;
-      const x = Math.random() * maxX;
-      const y = Math.random() * maxY;
+      const x = Math.max(padding, Math.random() * maxX);
+      const y = Math.max(padding, Math.random() * maxY);
       noBtn.style.position = "fixed";
       noBtn.style.left = x + "px";
       noBtn.style.top  = y + "px";
@@ -122,9 +122,8 @@
 
     noBtn.addEventListener("mouseenter", moveNoButton);
     noBtn.addEventListener("touchstart", (e)=>{ e.preventDefault(); moveNoButton(); }, {passive:false});
-
     noBtn.addEventListener("click", () => {
-      msg.textContent = "No is not allowed 😘";
+      msg.textContent = "Nice try 😘 (No is not available)";
       moveNoButton();
     });
   </script>
