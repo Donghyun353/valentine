@@ -25,8 +25,8 @@
       position:relative;
       z-index:2;
     }
-    h1{ margin:0 0 10px; font-size:26px; line-height:1.25; }
-    p{ margin:0 0 18px; color:#444; }
+    h1{ margin:0 0 6px; font-size:26px; line-height:1.3; }
+    p{ margin:10px 0 18px; color:#444; }
     .btns{
       display:flex;
       gap:12px;
@@ -71,7 +71,8 @@
 </head>
 <body>
   <div class="card">
-    <h1>사랑하는 지숙아!☺️ 나의 발렌타인데이가 되어줄래? 💘</h1>
+    <h1>사랑하는 지숙아!☺️</h1>
+    <h1>나의 발렌타인데이가 되어줄래? 💘</h1>
     <p>Choose wisely 😄</p>
 
     <div class="btns">
