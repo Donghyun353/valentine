@@ -73,7 +73,7 @@
 <body>
   <div class="card">
     <h1>Will you be my Valentine,</h1>
-    <h1>지숙아 오늘 나의 발렌타인이 되어줄래? 💘</h1>
+    <h1>사랑하는 지숙아! ☺️오늘 나의 발렌타인이 되어줄래? 💘🫂💕</h1>
     <p>Choose wisely 😄</p>
 
     <div class="btns">
