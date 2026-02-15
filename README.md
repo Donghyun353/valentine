@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Valentine</title>
+  <title>Valentine (CLEAN)</title>
   <style>
     body{
       font-family: Arial, sans-serif;
@@ -69,6 +69,12 @@
       10%  { opacity:1; }
       100% { opacity:0; transform: translate(calc(-50% + var(--x)), calc(-50% - 260px)) scale(1.5); }
     }
+    /* ✅ 아주 작게 표시되는 버전 서명 (눈에 거의 안 띔) */
+    .sig{
+      margin-top:14px;
+      font-size:12px;
+      color:#999;
+    }
   </style>
 </head>
 <body>
@@ -84,6 +90,8 @@
     </div>
 
     <div id="message"></div>
+
+    <div class="sig">vCLEAN-2026</div>
   </div>
 
   <script>
