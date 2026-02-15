@@ -2,7 +2,6 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Valentine</title>
   <style>
@@ -72,8 +71,7 @@
 </head>
 <body>
   <div class="card">
-    <h1>Will you be my Valentine,</h1>
-    <h1>사랑하는 지숙아! ☺️오늘 나의 발렌타인이 되어줄래? 💘🫂💕</h1>
+    <h1>사랑하는 지숙아!☺️ 나의 발렌타인데이가 되어줄래? 💘</h1>
     <p>Choose wisely 😄</p>
 
     <div class="btns">
@@ -103,7 +101,7 @@
     }
 
     yesBtn.addEventListener("click", () => {
-      msg.textContent = "Yay!! I love you so much 💕";
+      msg.textContent = "고마워요 💕 사랑해요";
       popHearts();
       yesBtn.style.transform = "scale(1.06)";
       setTimeout(()=> yesBtn.style.transform = "scale(1)", 150);
@@ -124,7 +122,7 @@
     noBtn.addEventListener("mouseenter", moveNoButton);
     noBtn.addEventListener("touchstart", (e)=>{ e.preventDefault(); moveNoButton(); }, {passive:false});
     noBtn.addEventListener("click", () => {
-      msg.textContent = "Nice try 😘 (No is not available)";
+      msg.textContent = "😊 (No는 선택할 수 없어요)";
       moveNoButton();
     });
   </script>
