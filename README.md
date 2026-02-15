@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Valentine</title>
+  <title>Valentine - FINAL TEST</title>
   <style>
     body{
       font-family: Arial, sans-serif;
@@ -26,6 +26,16 @@
       box-shadow:0 10px 30px rgba(0,0,0,.15);
       position:relative;
       z-index:2;
+    }
+    .banner{
+      font-size:18px;
+      font-weight:800;
+      padding:10px 12px;
+      border-radius:12px;
+      margin:0 0 14px;
+      background:#ff3b30;
+      color:#fff;
+      letter-spacing:.5px;
     }
     h1{ margin:0 0 8px; font-size:26px; line-height:1.3; }
     p{ margin:10px 0 18px; color:#444; }
@@ -73,6 +83,7 @@
 </head>
 <body>
   <div class="card">
+    
     <h1>사랑하는 지숙아!☺️</h1>
     <h1>나의 발렌타인데이가 되어줄래? 💘</h1>
 
